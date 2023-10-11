@@ -1,13 +1,3 @@
-__pycache__/
-*.csv
-*.log
-*.pyc
-*.txt
-functiontrace*
-*log*
-*pyo
-*.txt
-*.ttf
-*user*
-time_csv.py
 .vscode/
+
+*.pyc
