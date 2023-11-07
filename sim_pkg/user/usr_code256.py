@@ -1,11 +1,9 @@
 import struct
 import math
-import numpy as np
 
 
 def usr(robot):
-    smooth = True
-        
+    smooth = False
     while True:
         sum_hop_1 = 0
         sum_hop_2 = 0
