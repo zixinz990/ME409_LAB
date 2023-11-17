@@ -1,3 +1,6 @@
+import math
+import random
+
 '''
 Firefly
 
@@ -36,20 +39,37 @@ def init(swarmsize, x, y, theta, a_ids):
             a_ids[i]=2
     pass
 '''
+
+
 def init(swarmsize, x, y, theta, a_ids):
-    import math
-    import random
-    
-    for i in range(swarmsize):
-        x[i] = random.uniform(-4, 4) 
-        y[i] = random.uniform(-4, 4) 
-        a_ids[i] = i
-        theta[i] = random.uniform(-math.pi, math.pi)
-        # if i%3==0:
-		# 	a_ids[i]=1
-		# elif i%3==1:
-		# 	a_ids[i]=0
-		# else:
-		# 	a_ids[i]=2
+    spacey = 0.5
+    spacex = 0.5
+
+    if swarmsize == 100:
+        n_shell = 2
+        for i in range(swarmsize):
+            y[i] = (i % 10) * spacey - 5 * spacey
+            x[i] = math.floor(i / 10) * spacex - 5 * spacex
+            a_ids[i] = 0 # 100 robots for 1 shell
+            theta[i] = 0
+
+            if n_shell == 2:
+                # 100 robots for 2 shell
+                if i < 50:
+                    a_ids[i] = 0
+                else:
+                    a_ids[i] = 1
+    elif swarmsize == 150:
+        n_shell = 3
+        for i in range(swarmsize):
+            y[i] = (i % 10) * spacey - 5 * spacey
+            x[i] = math.floor(i / 10) * spacex - 7 * spacex
+            theta[i] = 0
+            if i < 50:
+                a_ids[i] = 0
+            elif i >= 50 and i < 100:
+                a_ids[i] = 1
+            else:
+                a_ids[i] = 2
 
     return x, y, theta, a_ids
