@@ -8,6 +8,5 @@ functiontrace*
 *pyo
 *.txt
 *.ttf
-*user*
 time_csv.py
 .vscode/
